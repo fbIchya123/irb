@@ -15,6 +15,13 @@
                 <input type="text" name="CompanyName" placeholder="Company" class="form-control mt-2 mb-2">
                 <button name="btn" type="submit" class="btn btn-success">Find</button>
             </form>
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="display-4 fw-normal">Try to Search</h1>
+            </div>
+            <div th:each = "element : ${cards}" class="alert alert-info mt-2">
+                <h3 th:text = "${element.name}"></h3>
+                <p th:text = "${element.inn}"></p>
+            </div>
         </div>
     </div>
 </body>

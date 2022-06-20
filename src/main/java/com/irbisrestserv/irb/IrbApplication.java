@@ -10,4 +10,5 @@ public class IrbApplication {
 		SpringApplication.run(IrbApplication.class, args);
 	}
 
+
 }
