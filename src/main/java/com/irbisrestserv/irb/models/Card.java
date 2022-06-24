@@ -1,33 +1,25 @@
 package com.irbisrestserv.irb.models;
 
-
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.solr.core.mapping.Indexed;
+import org.springframework.data.solr.core.mapping.SolrDocument;
 
-import javax.persistence.*;
-
-
-
-@Entity
-@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
-@Table(name = "card")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@SolrDocument(solrCoreName = "Cards")
 public class Card {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
+    @Indexed(name = "name", type = "string")
     private String name;
 
-    public Long getId() {
-        return id;
-    }
+    @Id
+    @Indexed(name = "inn", type = "string")
+    private String inn;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -37,6 +29,11 @@ public class Card {
         this.name = name;
     }
 
+    public String getInn() {
+        return inn;
+    }
 
+    public void setInn(String inn) {
+        this.inn = inn;
+    }
 }
-
