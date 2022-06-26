@@ -17,9 +17,7 @@ public class InputController {
     public void Request(@RequestBody ArrayList<Card> req){
         reqs.clear();
         for (Card item: req) {
-            Card card = new Card();
-            card.setInn(item.getInn()); 
-            card.setName(item.getName());
+            Card card = new Card(item.getName(), item.getInn());
             reqs.add(card);
         }
     }

@@ -22,7 +22,7 @@ public class FindController {
 
 
     @PostConstruct
-    @GetMapping("/out")
+    @GetMapping("/ent")
     public void addCard(){
         ArrayList<Card> cards = new ArrayList<>(InputController.getReq());
         cards.add(new Card("t", ""));

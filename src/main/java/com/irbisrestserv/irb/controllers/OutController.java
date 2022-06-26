@@ -15,17 +15,17 @@ public class OutController {
     @Autowired
     CardRepository rep;
 
-    @GetMapping("/out/result")
-    public String out(Model model){
+    @GetMapping("/out")
+    public String outAll(Model model){
         rep.deleteByName(" ");
         model.addAttribute("reqs", rep.findAll());
         return "out";
 
     }
 
-    @GetMapping("/out/result/{name}")
-    public String out1(@PathVariable String name, Model model){
-        model.addAttribute("reqs", rep.findByCustomQuery(name, PageRequest.of(0, 10)));
+    @GetMapping("/out/result")
+    public String outResult(Model model){
+        model.addAttribute("reqs", rep.findByCustomQuery(MainController.getTerm(), PageRequest.of(0, 10)));
         return "out";
 
     }
