@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
@@ -22,7 +23,7 @@ public class FindController {
 
 
     @PostConstruct
-    @GetMapping("/ent")
+    @PostMapping("/out")
     public void addCard(){
         ArrayList<Card> cards = new ArrayList<>(InputController.getReq());
         cards.add(new Card("t", ""));

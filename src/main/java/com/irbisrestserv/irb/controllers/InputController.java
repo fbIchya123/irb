@@ -4,12 +4,16 @@ import com.irbisrestserv.irb.models.Card;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/")
 public class InputController {
+
+    RestTemplate rest = new RestTemplate();
+
     public static ArrayList<Card> reqs = new ArrayList<>();
 
     @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -20,6 +24,9 @@ public class InputController {
             Card card = new Card(item.getName(), item.getInn());
             reqs.add(card);
         }
+
+        Object post = null;
+        rest.postForEntity("http://localhost:8080/out", post, Card.class);
     }
 
     public static ArrayList getReq(){
