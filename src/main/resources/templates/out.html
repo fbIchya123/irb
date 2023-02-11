@@ -21,7 +21,7 @@
       <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
         <h1 class="display-4 fw-normal">Results</h1>
       </div>
-      <div th:each = "element : ${reqs}" class="alert alert-info mt-6">
+      <div th:each = "element : ${inp}" class="alert alert-info mt-6">
         <h3 th:text = "${element.name}"></h3>
         <p th:text = "${element.inn}"></p>
       </div>
